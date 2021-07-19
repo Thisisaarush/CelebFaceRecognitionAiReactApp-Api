@@ -10,10 +10,12 @@ const image = require('./controllers/image');
 
 const db = knex({
   client: 'pg',
-  connection: {
-    connectionString: process.env.DATABASE_URL,
-    ssl: true,
-  }
+    connection: {
+      host : '127.0.0.1',
+      user : 'postgres',
+      password : 'smarter',
+      database : 'faceai'
+    }
 });
 
 const app = express();
@@ -29,6 +31,6 @@ app.put('/image', (req, res) => {image.handleImage(req, res, db)});
 app.post('/imageUrl', (req, res) => {image.handleApiCall(req, res)});
 
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(3000, () => {
   console.log('Hello its working, Express here!');
 });
