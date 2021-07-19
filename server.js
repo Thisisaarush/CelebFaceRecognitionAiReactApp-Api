@@ -11,7 +11,7 @@ const image = require('./controllers/image');
 const db = knex({
   client: 'pg',
   connection: {
-    connectionString : process.env.DATABASE_URL,
+    connectionString: process.env.DATABASE_URL,
     ssl: true,
   }
 });
@@ -30,5 +30,5 @@ app.post('/imageUrl', (req, res) => {image.handleApiCall(req, res)});
 
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log('Hello its working, Express here! Port ${process.env.PORT}');
+  console.log('Hello its working, Express here!');
 });
